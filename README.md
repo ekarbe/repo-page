@@ -2,6 +2,8 @@
 
 A Vue.js page that displays the repositories of a GitHub account.
 
+#### [Demo](https://ekarbe.github.io)
+
 ## Installation
 
 1. Clone this repository and change into its folder:
