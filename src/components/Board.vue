@@ -119,7 +119,7 @@
       <v-flex 
       xs12>
         <v-label>
-        GitHub Board Version 0.1.0 by ekarbe 
+        RepoPage Version 0.1.0 by ekarbe 
           <a 
           href="https://github.com/ekarbe/repo-page/issues" 
           target="_blank">
