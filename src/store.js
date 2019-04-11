@@ -17,8 +17,8 @@ export default new Vuex.Store({
 
     configuration: null,
 
-    selectedSort: null,
-    selectedFilter: null,
+    selectedSort: [],
+    selectedFilter: [],
 
     ownRepositoriesCount: 0,
     notMaintainedRepositoriesCount: 0,
@@ -29,9 +29,9 @@ export default new Vuex.Store({
   mutations: {
 
     // sets repositories
-    set_repositories(state, repositories) {
-      this.state.repositories = repositories;
-      this.state.originalRepositories = this.state.repositories;
+    push_repositories(state, repositories) {
+      this.state.repositories.push(...repositories);
+      this.state.originalRepositories = repositories;
     },
 
     // sets the oldest repository
@@ -141,14 +141,32 @@ export default new Vuex.Store({
     // sends request to get repositories
     getRepositories({ state, commit }) {
       return new Promise((resolve, reject) => {
-        axios.get(
-          `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=100&page=1`,
+        let pages;
+        axios.head(
+          `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=20&page=1`,
         )
           .then((response) => {
-            commit('set_repositories', response.data);
+            if (response.headers.link !== undefined) {
+              const page = response.headers.link.split('&page=');
+              pages = page[2].split('>')[0];
+            } else {
+              pages = 1;
+            }
+            for (let i = 1; i <= pages; i += 1) {
+              axios.get(
+                `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=20&page=${i}`,
+              )
+                .then((res) => {
+                  commit('push_repositories', res.data);
+                })
+                .catch(() => {
+                  reject();
+                });
+            }
             resolve();
           })
-          .catch(() => {
+          .catch((err) => {
+            alert(`API ${err}\n`);
             reject();
           });
       });
