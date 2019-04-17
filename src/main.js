@@ -14,7 +14,8 @@ new Vue({
       .then(() => {
         store.dispatch('getRepositories')
           .then(() => {
-            store.dispatch('parseRepositories');
+            // only temporary timeout
+            setTimeout(() => { store.dispatch('parseRepositories'); }, 2000);
           });
         store.dispatch('getUser');
       });

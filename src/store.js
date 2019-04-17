@@ -143,7 +143,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         let pages;
         axios.head(
-          `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=20&page=1`,
+          `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=100&page=1`,
         )
           .then((response) => {
             if (response.headers.link !== undefined) {
@@ -154,7 +154,7 @@ export default new Vuex.Store({
             }
             for (let i = 1; i <= pages; i += 1) {
               axios.get(
-                `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=20&page=${i}`,
+                `https://api.github.com/${state.configuration.type}/${state.configuration.name}/repos?per_page=100&page=${i}`,
               )
                 .then((res) => {
                   commit('push_repositories', res.data);
@@ -165,8 +165,7 @@ export default new Vuex.Store({
             }
             resolve();
           })
-          .catch((err) => {
-            alert(`API ${err}\n`);
+          .catch(() => {
             reject();
           });
       });
