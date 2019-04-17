@@ -11,7 +11,8 @@
       ></v-text-field>
     </v-flex>
     <v-flex 
-    xs1>
+    xs2
+    class="toolbar-element">
       <v-select
             label="Sort"
             :items="sort"
@@ -21,7 +22,8 @@
           ></v-select>
     </v-flex>
     <v-flex 
-    xs1>
+    xs2
+    class="toolbar-element">
       <v-select
             label="Filter"
             :items="languages"
@@ -31,7 +33,7 @@
           ></v-select>
     </v-flex>
     <v-flex 
-    xs4>
+    xs2>
     </v-flex>
   </v-layout>
 </template>
@@ -82,5 +84,7 @@ export default {
 </script>
 
 <style scoped>
-
+.toolbar-element{
+  margin-left: 1vh;
+}
 </style>
