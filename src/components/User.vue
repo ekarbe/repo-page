@@ -7,27 +7,44 @@
     row 
     wrap>
       <v-flex 
-      xs4>
+      xs4
+      sm4
+      md4
+      lg4
+      xl4>
         <img 
         :src="user.avatar_url" 
         height=60 
         width=60>
       </v-flex>
+      <v-flex
+      xs1
+      sm1
+      md1
+      lg1
+      xl1>
+      </v-flex>
       <v-flex 
-      xs8>
+      xs7
+      sm7
+      md7
+      lg7
+      xl7>
         <h2>
           {{user.login}}
         </h2>
       </v-flex>
-      <v-flex 
-      xs8>
-      </v-flex>
     </v-layout>
     <v-layout 
     row 
-    wrap>
+    wrap
+    class="hidden-xs-only">
       <v-flex 
-      xs6>
+      xs6
+      sm6
+      md6
+      lg6
+      xl6>
         <v-layout 
         row 
         wrap>
@@ -44,7 +61,11 @@
         </v-layout>
       </v-flex>
       <v-flex 
-      xs6>
+      xs6
+      sm6
+      md6
+      lg6
+      xl6>
         <v-layout 
         row 
         wrap>

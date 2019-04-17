@@ -14,15 +14,21 @@
     row 
     wrap 
     class="repo-description">
-      <v-label 
-      v-if="!no_desc">
-        {{repo.description}}
-      </v-label>
+      <v-flex
+      class="hidden-xs-only">
+        <v-label 
+        v-if="!no_desc">
+          {{repo.description}}
+        </v-label>
+      </v-flex>
     </v-layout>
-      <v-label 
-      v-if="repo.license !== null && !no_desc">
-        {{repo.license.name}}
-      </v-label>
+      <v-flex
+      class="repo-license hidden-xs-only">
+        <v-label 
+        v-if="repo.license !== null && !no_desc">
+          {{repo.license.name}}
+        </v-label>
+      </v-flex>
       <v-layout 
       row 
       wrap>
@@ -33,7 +39,7 @@
       <v-layout 
       row 
       wrap 
-      class="repo-footer">
+      class="repo-footer hidden-xs-only">
         <v-flex 
         xs2 
         v-if="!no_desc">
@@ -98,6 +104,11 @@ export default {
   overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.repo-license{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .repo-fork{
   float: inline-end;
