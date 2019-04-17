@@ -5,11 +5,19 @@
     row 
     wrap>
       <v-flex 
-      xs11>
+      xs11
+      sm11
+      md11
+      lg11
+      xl11>
         <toolbar></toolbar>
       </v-flex>
       <v-flex 
-      xs1>
+      xs1
+      sm1
+      md1
+      lg1
+      xl1>
         <img 
         src="../assets/github_logo.png"
         heigth="50px" 
@@ -22,7 +30,11 @@
     row 
     wrap>
       <v-flex 
-      xs9>
+      xs6
+      sm6
+      md9
+      lg9
+      xl9>
         <div 
         class="scroll-container">
       <v-layout 
@@ -30,7 +42,11 @@
       wrap 
       v-if="repos !== null || repos !== undefined">
         <v-flex 
-        xs4 
+        xs6
+        sm6
+        md4
+        lg4
+        xl4
         v-for="repo in repos" 
         :key="repo.id">
           <repo 
@@ -44,7 +60,11 @@
        text-xs-center 
        v-if="repos === null || repos === undefined">
          <v-flex 
-         xs12>
+         xs12
+         sm12
+         md12
+         lg12
+         xl12>
             <v-icon>
              report_problem
             </v-icon>
@@ -56,7 +76,11 @@
         </div>
       </v-flex>
       <v-flex 
-      xs3>
+      xs6
+      sm6
+      md3
+      lg3
+      xl3>
         <v-layout 
         row 
         wrap>
@@ -73,7 +97,12 @@
             <statistic></statistic>
           </v-flex>
           <v-flex 
-          xs12>
+          xs12
+          sm12
+          md12
+          lg12
+          xl12
+          class="hidden-xs-only">
             <v-layout 
             row 
             wrap>
@@ -119,7 +148,7 @@
       <v-flex 
       xs12>
         <v-label>
-        GitHub Board Version 0.1.0 by ekarbe 
+        RepoPage Version 0.1.1 by ekarbe 
           <a 
           href="https://github.com/ekarbe/repo-page/issues" 
           target="_blank">
