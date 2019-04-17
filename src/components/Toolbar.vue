@@ -4,14 +4,22 @@
   row 
   wrap>
     <v-flex 
-    xs6>
+    xs5
+    sm4
+    md4
+    lg6
+    xl6>
       <v-text-field
       height="25px"
       v-model="searchText"
       ></v-text-field>
     </v-flex>
     <v-flex 
-    xs2
+    xs3
+    sm3
+    md3
+    lg2
+    xl2
     class="toolbar-element">
       <v-select
             label="Sort"
@@ -22,7 +30,11 @@
           ></v-select>
     </v-flex>
     <v-flex 
-    xs2
+    xs3
+    sm3
+    md3
+    lg2
+    xl2
     class="toolbar-element">
       <v-select
             label="Filter"
@@ -33,7 +45,11 @@
           ></v-select>
     </v-flex>
     <v-flex 
-    xs2>
+    xs0
+    sm2
+    md2
+    lg2
+    xl2>
     </v-flex>
   </v-layout>
 </template>
